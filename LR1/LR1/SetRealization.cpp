@@ -103,17 +103,21 @@ Element* deleteSet(Element*& start) {
 
 //F9 Подможножество А-В
 bool isSubset(Element* SetA, Element* SetB) {
-    if (isEmpty(SetA)) return false;
-    if (SetPower(SetA) > SetPower(SetB)) return false;
-    Element* current = SetA;
-    while (current->next) {
-        if (!SetCheck(SetB, current->value))
-            return false;
-        current = current->next;
-    }
     cout << "Множество А: " << printSet(SetA) << endl;
     cout << "Множество В: " << printSet(SetB) << endl;
-    cout << "Множество А является подмножеством множества В" << endl;
+    if (isEmpty(SetA)) { 
+        return false; 
+    }
+    if (SetPower(SetA) > SetPower(SetB)) { 
+        return false; 
+    }
+    Element* current = SetA;
+    while (current->next) {
+        if (!SetCheck(SetB, current->value)) {
+            return false;
+        }
+        current = current->next;
+    }
     return true;
 }
 
