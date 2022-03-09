@@ -81,5 +81,8 @@ int main()
     NewMergedSet = mergeSets(NewSet1, NewSet2);
 
     cout << "Множество C: " << printSet(NewMergedSet) << endl;
+
+    //F12--------------------------------------------------------------------
+
 }
 
