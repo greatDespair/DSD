@@ -142,3 +142,43 @@ Element* mergeSets(Element* A, Element* B) {
     return C;
 }
 
+//F12
+Element* sameOfSets(Element* A, Element* B) {
+    if (isEmpty(A) || isEmpty(B))
+        return createEmptySet();;
+    Element* C = createEmptySet();
+    Element* current = A;
+    while (current->next) {
+        if (SetCheck(B, current->value))
+            C = add(C, current->value);
+        current = current->next;
+    }
+    if (SetCheck(B, current->value))
+        C = add(C, current->value);
+    return C;
+}
+
+//F13 Разность множеств
+Element* diffOfSets(Element* A, Element* B) {
+    if (isEmpty(A) || isEmpty(B))
+        return createEmptySet();
+    Element* C = createEmptySet();
+    Element* current = A;
+    while (current->next) {
+        if (!SetCheck(B, current->value))
+            C = add(C, current->value);
+        current = current->next;
+    }
+    if (!SetCheck(B, current->value))
+        C = add(C, current->value);
+    return C;
+}
+
+//F14 Симметричная разность множеств
+Element* symDiffOfSets(Element* A, Element* B) {
+
+    if (isEmpty(sameOfSets(A, B))) 
+        return mergeSets(A, B);
+
+    return diffOfSets(mergeSets(A, B), sameOfSets(A, B));
+}

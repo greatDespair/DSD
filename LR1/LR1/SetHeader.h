@@ -31,3 +31,9 @@ bool isSubset(Element* A, Element* B);
 bool isEqual(Element* A, Element* B);
 //F11 Объединение двух множеств
 Element* mergeSets(Element* A, Element* B);
+//F12 Пересечение множеств
+Element* sameOfSets(Element* A, Element* B);
+//F13 Разность множеств
+Element* diffOfSets(Element* A, Element* B);
+//F14 Симметричная разность множеств
+Element* symDiffOfSets(Element* A, Element* B);

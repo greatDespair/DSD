@@ -24,6 +24,7 @@ int main()
     cout << "Множество А: " << printSet(NewSet1) << endl;
     cout << "Множество В: " << printSet(NewSet2) << endl;
     //F9--------------------------------------------------------------------
+    cout << "<F9>" << endl;
     if (isSubset(NewSet1, NewSet2)) {
         cout << "Множество А является подмножеством множества В" << endl;
     }
@@ -43,6 +44,7 @@ int main()
     }
 
     //F10--------------------------------------------------------------------
+    cout << "<F10>" << endl;
     deleteSet(NewSet1);
     deleteSet(NewSet2);
     
@@ -68,6 +70,7 @@ int main()
     }
 
     //F11--------------------------------------------------------------------
+    cout << "<F11>" << endl;
     deleteSet(NewSet1);
     deleteSet(NewSet2);
 
@@ -83,6 +86,33 @@ int main()
     cout << "Множество C: " << printSet(NewMergedSet) << endl;
 
     //F12--------------------------------------------------------------------
+    cout << "<F12>" << endl;
+    deleteSet(NewSet1);
+    deleteSet(NewSet2);
 
+    add(NewSet1, 14);
+    add(NewSet1, 5);
+    add(NewSet1, 56);
+    add(NewSet1, 58);
+
+    add(NewSet2, 42);
+    add(NewSet2, 60);
+    add(NewSet2, 26);
+    add(NewSet2, 14);
+    add(NewSet2, 5);
+    add(NewSet2, 56);
+   
+    cout << "Множество А: " << printSet(NewSet1) << endl;
+    cout << "Множество В: " << printSet(NewSet2) << endl;
+    cout << "Пересечение множеств А и В: " << printSet(sameOfSets(NewSet1, NewSet2)) << endl;
+
+    
+    //F13--------------------------------------------------------------------
+    cout << "<F13>" << endl;
+    cout << "Разность множеств А и В: " << printSet(diffOfSets(NewSet1, NewSet2)) << endl;
+
+    //F14--------------------------------------------------------------------
+    cout << "<F14>" << endl;
+    cout << "Симметричная разность множеств А и В: " << printSet(symDiffOfSets(NewSet1, NewSet2)) << endl;
 }
 
