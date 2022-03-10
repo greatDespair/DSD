@@ -51,19 +51,29 @@ Element* generateSet(int count, int min, int max, int lastDigit) {
     Element* set = createEmptySet();
     int i = 0;
         if (lastDigit == 3) {
-            while (SetPower(set) < count) {
+            while (i < count) {
                 int temp = rand() % (max - min + 1) + min;
-                if (temp % 10 > 3) 
+                if (temp % 10 > 3)
+                {
+                    Element* check = set;
                     add(set, temp);
+                    if (check != set)
+                        i++;
+                }
             }
         }
         else
         {
             if (lastDigit == 8)
-                while (SetPower(set) < count) {
+                while (i < count) {
                     int temp = rand() % (max - min + 1) + min;
                     if (temp % 10 < 8) 
+                    {
+                        Element* check = set;
                         add(set, temp);
+                        if (check != set)
+                            i++;
+                    }
                 }
             else
             {
@@ -135,16 +145,12 @@ Element* mergeSets(Element* A, Element* B) {
         return createEmptySet();
     Element* C = A;
     Element* current = B;
-    while (current->next) 
+    while (current) 
     {
         if (!SetCheck(C, current->value))
             C = add(C, current->value);
         current = current->next;
     }
-
-    if (!SetCheck(C, current->value))
-        C = add(C, current->value);
-
 
     return C;
 }
@@ -157,14 +163,11 @@ Element* sameOfSets(Element* A, Element* B) {
     Element* C = createEmptySet();
     Element* current = A;
 
-    while (current->next) {
+    while (current) {
         if (SetCheck(B, current->value))
             C = add(C, current->value);
         current = current->next;
     }
-
-    if (SetCheck(B, current->value))
-        C = add(C, current->value);
 
     return C;
 }
@@ -177,15 +180,12 @@ Element* diffOfSets(Element* A, Element* B) {
     Element* C = createEmptySet();
     Element* current = A;
 
-    while (current->next) 
+    while (current) 
     {
         if (!SetCheck(B, current->value))
             C = add(C, current->value);
         current = current->next;
     }
-
-    if (!SetCheck(B, current->value))
-        C = add(C, current->value);
 
     return C;
 }
