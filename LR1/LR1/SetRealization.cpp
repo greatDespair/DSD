@@ -105,12 +105,15 @@ Element* deleteSet(Element*& start) {
 bool isSubset(Element* SetA, Element* SetB) {
     cout << "Множество А: " << printSet(SetA) << endl;
     cout << "Множество В: " << printSet(SetB) << endl;
+
     if (isEmpty(SetA)) { 
         return false; 
     }
+
     if (SetPower(SetA) > SetPower(SetB)) { 
         return false; 
     }
+
     Element* current = SetA;
     while (current->next) {
         if (!SetCheck(SetB, current->value)) {
@@ -132,29 +135,37 @@ Element* mergeSets(Element* A, Element* B) {
         return createEmptySet();
     Element* C = A;
     Element* current = B;
-    while (current->next) {
+    while (current->next) 
+    {
         if (!SetCheck(C, current->value))
             C = add(C, current->value);
         current = current->next;
     }
-    if (SetCheck(B, current->value))
+
+    if (!SetCheck(C, current->value))
         C = add(C, current->value);
+
+
     return C;
 }
 
 //F12
 Element* sameOfSets(Element* A, Element* B) {
     if (isEmpty(A) || isEmpty(B))
-        return createEmptySet();;
+        return createEmptySet();
+
     Element* C = createEmptySet();
     Element* current = A;
+
     while (current->next) {
         if (SetCheck(B, current->value))
             C = add(C, current->value);
         current = current->next;
     }
+
     if (SetCheck(B, current->value))
         C = add(C, current->value);
+
     return C;
 }
 
@@ -162,15 +173,20 @@ Element* sameOfSets(Element* A, Element* B) {
 Element* diffOfSets(Element* A, Element* B) {
     if (isEmpty(A) || isEmpty(B))
         return createEmptySet();
+
     Element* C = createEmptySet();
     Element* current = A;
-    while (current->next) {
+
+    while (current->next) 
+    {
         if (!SetCheck(B, current->value))
             C = add(C, current->value);
         current = current->next;
     }
+
     if (!SetCheck(B, current->value))
         C = add(C, current->value);
+
     return C;
 }
 

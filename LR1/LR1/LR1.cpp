@@ -73,9 +73,9 @@ int main()
     cout << "<F11>" << endl;
     deleteSet(NewSet1);
     deleteSet(NewSet2);
-
-    NewSet1 = generateSet(5, 10, 60, 3);
-    NewSet2 = generateSet(8, 10, 60, 8);
+    
+    NewSet1 = generateSet(rand() % 4 + 6, 10, 60, 8);
+    NewSet2 = generateSet(rand() % 4 + 6, 10, 60, 3);
 
     cout << "Множество А: " << printSet(NewSet1) << endl;
     cout << "Множество В: " << printSet(NewSet2) << endl;
