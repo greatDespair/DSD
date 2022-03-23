@@ -117,7 +117,7 @@ bool isSubset(Element* SetA, Element* SetB) {
     cout << "Множество В: " << printSet(SetB) << endl;
 
     if (isEmpty(SetA)) { 
-        return false; 
+        return true; 
     }
 
     if (SetPower(SetA) > SetPower(SetB)) { 
@@ -136,12 +136,12 @@ bool isSubset(Element* SetA, Element* SetB) {
 
 //F10 Равенство двух множеств
 bool isEqual(Element* A, Element* B) {
-    return (SetPower(A) == SetPower(B)) && isSubset(A, B);
+    return (isSubset(B, A) && isSubset(A, B));
 }
 
 //F11 Объединение двух множеств
 Element* mergeSets(Element* A, Element* B) {
-    if (isEmpty(A) || isEmpty(B))
+    if (isEmpty(A) && isEmpty(B))
         return createEmptySet();
     Element* C = A;
     Element* current = B;
@@ -174,7 +174,7 @@ Element* sameOfSets(Element* A, Element* B) {
 
 //F13 Разность множеств
 Element* diffOfSets(Element* A, Element* B) {
-    if (isEmpty(A) || isEmpty(B))
+    if (isEmpty(A) )
         return createEmptySet();
 
     Element* C = createEmptySet();
@@ -192,9 +192,5 @@ Element* diffOfSets(Element* A, Element* B) {
 
 //F14 Симметричная разность множеств
 Element* symDiffOfSets(Element* A, Element* B) {
-
-    if (isEmpty(sameOfSets(A, B))) 
-        return mergeSets(A, B);
-
     return diffOfSets(mergeSets(A, B), sameOfSets(A, B));
 }
