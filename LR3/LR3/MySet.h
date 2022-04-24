@@ -1,6 +1,7 @@
 #pragma once
-#include <iostream>
-#include <string>
+#include <iostream>;
+#include <string>;
+
 
 struct Element {
 	int Value;
@@ -10,7 +11,7 @@ struct Element {
 using namespace std;
 class MySet {
 public:
-	Element* start;
+	Element start;
 
 	MySet();
 	~MySet();
@@ -23,7 +24,11 @@ public:
 	string printSet();
 	bool isSubset(MySet SetA, MySet SetB);
 	bool isEqual(MySet A, MySet B);
+
 	MySet mergeSets(MySet A, MySet B);
+
 	MySet sameOfSets(MySet A, MySet B);
+	MySet diffOfSets(MySet A, MySet B);
+	MySet symDiffOfSets(MySet A, MySet B);
 
 };

@@ -1,13 +1,12 @@
-#include "MySet.h"
-
-
+#include "MySet.h";
 
 MySet::MySet() {
-	start = nullptr;
+	start.Value = NULL;
+    start.Next = nullptr;
 }
 
 MySet::~MySet() {
-    Element* current = start;
+    Element* current = &start;
     if (isEmpty())
         cout << "Множество пустое!" << endl;
     while (current) {
@@ -15,27 +14,33 @@ MySet::~MySet() {
         current = current->Next;
         delete temp;
     }
-    start = nullptr;
+    delete &start;
 }
 
 bool MySet::isEmpty() {
-    return !start;
+    return !&start;
 }
 
 bool MySet::SetCheck(int value) {
-    if (isEmpty()) return false;
-    Element* current = start;
-    while (current->Next && current->Value != value)
+    if (isEmpty()) 
+        return false;
+    Element* current = &start;
+    while (current) {
+        if (current->Value == value)
+            return true;
         current = current->Next;
-    return current->Value == value;
+    }
+    return false;
 }
 
 bool MySet::add(int value) {
     if (!SetCheck(value)) {
+        
         Element* new_node = new Element;
-        new_node->Value = value;
-        new_node->Next = start;
-        start = new_node;
+        new_node->Value = start.Value;
+        new_node->Next = start.Next;
+        start.Value = value;
+        start.Next = new_node;
         return true;
     }
     return false;
@@ -44,7 +49,7 @@ bool MySet::add(int value) {
 int MySet::SetPower() {
     int power = 1;
     if (isEmpty()) return 0;
-    Element* current = start;
+    Element* current = &start;
     while (current->Next) {
         current = current->Next;
         power++;
@@ -78,7 +83,7 @@ void MySet::generateSet(int count, int min, int max, int lastDigit) {
 
 string MySet::printSet() {
     if (isEmpty()) return "Пустое множество";
-    Element* current = start;
+    Element* current = &start;
     string print;
     while (current) {
         print += to_string(current->Value) + " ";
@@ -99,7 +104,7 @@ bool MySet::isSubset(MySet SetA, MySet SetB) {
         return false;
     }
 
-    Element* current = SetA.start;
+    Element* current = &SetA.start;
     while (current->Next) {
         if (!SetB.SetCheck(current->Value)) {
             return false;
@@ -117,14 +122,14 @@ MySet MySet::mergeSets(MySet A, MySet B) {
     if (A.isEmpty() || B.isEmpty())
         return MySet();
     MySet C = MySet();
-    Element* current = A.start;
+    Element* current = &A.start;
     while (current)
     {
         C.add(current->Value);
         current = current->Next;
     }
 
-    current = B.start;
+    current = &B.start;
     while (current)
     {
         if (!C.SetCheck(current->Value)) {
@@ -141,7 +146,7 @@ MySet MySet::sameOfSets(MySet A, MySet B){
         return MySet();
 
     MySet C = MySet();
-    Element* current = A.start;
+    Element* current = &A.start;
 
     while (current) {
         if (B.SetCheck(current->Value))
@@ -152,4 +157,28 @@ MySet MySet::sameOfSets(MySet A, MySet B){
     return C;
 }
 
+MySet MySet::diffOfSets(MySet A, MySet B) {
+    if (A.isEmpty() || B.isEmpty())
+        return MySet();
+
+    MySet C = MySet();
+    Element* current = &A.start;
+
+    while (current)
+    {
+        if (!B.SetCheck(current->Value))
+            C.add(current->Value);
+        current = current->Next;
+    }
+
+    return C;
+}
+
+MySet MySet::symDiffOfSets(MySet A, MySet B) {
+
+    if (sameOfSets(A, B).isEmpty())
+        return mergeSets(A, B);
+
+    return diffOfSets(mergeSets(A, B), sameOfSets(A, B));
+}
 
