@@ -11,17 +11,20 @@ struct Element {
 using namespace std;
 class MySet {
 public:
-	Element start;
+	Element* start;
 
 	MySet();
 	~MySet();
 
+	Element* getStart();
+	MySet creatingAnEmptySet();
 	bool isEmpty();
 	bool SetCheck(int value);
-	bool add(int value);
+	void add(int value);
 	int SetPower();
 	void generateSet(int count, int min, int max, int lastDigit);
 	string printSet();
+	void deleteSet();
 	bool isSubset(MySet SetA, MySet SetB);
 	bool isEqual(MySet A, MySet B);
 
