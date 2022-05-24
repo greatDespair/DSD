@@ -23,5 +23,4 @@ public:
 	SetList sameOfSets(SetList A, SetList B);
 	SetList diffOfSets(SetList A, SetList B);
 	SetList symDiffOfSets(SetList A, SetList B);
-
 };
