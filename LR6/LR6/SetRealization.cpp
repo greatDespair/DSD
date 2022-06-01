@@ -113,8 +113,6 @@ Element* deleteSet(Element*& start) {
 
 //F9 Подможножество А-В
 bool isSubset(Element* SetA, Element* SetB) {
-    cout << "Множество А: " << printSet(SetA) << endl;
-    cout << "Множество В: " << printSet(SetB) << endl;
 
     if (isEmpty(SetA)) { 
         return true; 

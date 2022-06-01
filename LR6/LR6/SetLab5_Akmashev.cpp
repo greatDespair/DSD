@@ -1,5 +1,6 @@
 #include "SetLab5_Akmashev.h";
 #include <algorithm>
+
 // Проверка на пустое множество
 bool SetSet::isEmpty() {
     return Set.empty();

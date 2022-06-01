@@ -3,20 +3,20 @@
 #include <string>;
 
 
-struct Element {
+struct ElementOOP {
 	int Value;
-	Element* Next;
+	ElementOOP* Next;
 };
 
 using namespace std;
 class MySet {
 public:
-	Element* start;
+	ElementOOP* start;
 
 	MySet();
 	~MySet();
 
-	Element* getStart();
+	ElementOOP* getStart();
 	MySet creatingAnEmptySet();
 	bool isEmpty();
 	bool SetCheck(int value);

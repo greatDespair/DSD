@@ -1,7 +1,7 @@
 #include "MySet.h";
 
 // Получение указателя на верщину
-Element* MySet::getStart() {
+ElementOOP* MySet::getStart() {
     return start;
 }
 // Создание пустого множества
@@ -24,7 +24,7 @@ bool MySet::isEmpty() {
 // Проверка принадлежности элемента множеству
 bool MySet::SetCheck(int value) {
     if (this->isEmpty()) return false;
-    Element* current = start;
+    ElementOOP* current = start;
     while (current->Next && current->Value != value)
         current = current->Next;
     return current->Value == value;
@@ -32,7 +32,7 @@ bool MySet::SetCheck(int value) {
 // Добавление нового элемента в множество в начало списка
 void MySet::add(int value) {
     if (!SetCheck(value)) {
-        Element* new_node = new Element;
+        ElementOOP* new_node = new ElementOOP;
         new_node->Value = value;
         new_node->Next = start;
         start = new_node;
@@ -42,7 +42,7 @@ void MySet::add(int value) {
 int MySet::SetPower() {
     int power = 0;
     if (this->isEmpty()) return 0;
-    Element* current = start;
+    ElementOOP* current = start;
     power++;
     while (current->Next) {
         current = current->Next;
@@ -53,7 +53,7 @@ int MySet::SetPower() {
 // Создание нового множества
 void MySet::generateSet(int count, int min, int max, int lastDigit) {
         int i = 0;
-        Element* check;
+        ElementOOP* check;
         if (lastDigit == 3) {
             while (i < count) {
                 check = start;
@@ -83,7 +83,7 @@ void MySet::generateSet(int count, int min, int max, int lastDigit) {
 // Вывод элементов множества
 string MySet::printSet() {
     if (this->isEmpty()) return "Пустое множество";
-    Element* current = start;
+    ElementOOP* current = start;
     string print;
     while (current->Next) {
         print += to_string(current->Value) + " ";
@@ -94,11 +94,11 @@ string MySet::printSet() {
 }
 // Удаление множества
 void MySet::deleteSet() {
-    Element* current = start;
+    ElementOOP* current = start;
     if (this->isEmpty())                   
         cout << "Нет удаляемых элементов множества" << endl;
     while (current) {                       
-        Element* temp = current;
+        ElementOOP* temp = current;
         current = current->Next;
         delete temp;
     }
@@ -108,7 +108,7 @@ void MySet::deleteSet() {
 bool MySet::isSubset(MySet a, MySet b) {
     if (a.isEmpty()) return true;
     if (a.SetPower() > b.SetPower()) return false;
-    Element* current = a.getStart();
+    ElementOOP* current = a.getStart();
     while (current->Next) {
         if (!b.SetCheck(current->Value))
             return false;
@@ -125,7 +125,7 @@ MySet MySet::mergeSets(MySet a, MySet b) {
     if (a.isEmpty() || b.isEmpty())
         return *new MySet();
     MySet c = a;
-    Element* current = b.getStart();
+    ElementOOP* current = b.getStart();
     while (current->Next) {
         if (!c.SetCheck(current->Value))
             c.add(current->Value);
@@ -140,7 +140,7 @@ MySet MySet::sameOfSets(MySet a, MySet b) {
     if (a.isEmpty() || b.isEmpty())
         return *new MySet();
     MySet c = *new MySet();
-    Element* current = a.getStart();
+    ElementOOP* current = a.getStart();
     while (current->Next) {
         if (b.SetCheck(current->Value))
             c.add(current->Value);
@@ -155,7 +155,7 @@ MySet MySet::diffOfSets(MySet a, MySet b) {
     if (a.isEmpty() || b.isEmpty())
         return *new MySet();
     MySet c = *new MySet();
-    Element* current = a.getStart();
+    ElementOOP* current = a.getStart();
     while (current->Next) {
         if (!b.SetCheck(current->Value))
             c.add(current->Value);
