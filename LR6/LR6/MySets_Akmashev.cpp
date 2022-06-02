@@ -84,101 +84,101 @@ int main() {
     auto end32 = chrono::high_resolution_clock::now();
     auto timeTest32 = chrono::duration_cast<chrono::duration < double>>(end32 - start32);
 
-    auto startTest33 = chrono::high_resolution_clock::now();
+    auto start33 = chrono::high_resolution_clock::now();
     SetList().isSubset(setA3, setA3);
-    auto finishTest33 = chrono::high_resolution_clock::now();
-    auto timeTest33 = chrono::duration_cast<chrono::duration < double>>(finishTest33 - startTest33);
+    auto end33 = chrono::high_resolution_clock::now();
+    auto timeTest33 = chrono::duration_cast<chrono::duration < double>>(end33 - start33);
 
-    auto startTest34 = chrono::high_resolution_clock::now();
+    auto start34 = chrono::high_resolution_clock::now();
     SetSet().isSubset(setA4, setA4);
-    auto finishTest34 = chrono::high_resolution_clock::now();
-    auto timeTest34 = chrono::duration_cast<chrono::duration < double>>(finishTest34 - startTest34);
+    auto end34 = chrono::high_resolution_clock::now();
+    auto timeTest34 = chrono::duration_cast<chrono::duration < double>>(end34 - start34);
 
     cout << "3.A|A \t\t " << to_string((timeTest31).count() * 10000) << "\t" << to_string((timeTest32).count() * 10000) << " \t "
         << to_string((timeTest33).count() * 10000) << " \t\t " << to_string((timeTest34).count() * 10000) << "\n";
     cout << "______________________________________________________________________________________________" << endl;
 
-    auto startTest41 = chrono::high_resolution_clock::now();
+    auto start41 = chrono::high_resolution_clock::now();
     isSubset(setA1, setB1);
-    auto finishTest41 = chrono::high_resolution_clock::now();
-    auto timeTest41 = chrono::duration_cast<chrono::duration < double>>(finishTest41 - startTest41);
+    auto end41 = chrono::high_resolution_clock::now();
+    auto timeTest41 = chrono::duration_cast<chrono::duration < double>>(end41 - start41);
 
-    auto startTest42 = chrono::high_resolution_clock::now();
+    auto start42 = chrono::high_resolution_clock::now();
     MySet().isSubset(setA2, setB2);
-    auto finishTest42 = chrono::high_resolution_clock::now();
-    auto timeTest42 = chrono::duration_cast<chrono::duration < double>>(finishTest42 - startTest42);
+    auto end42 = chrono::high_resolution_clock::now();
+    auto timeTest42 = chrono::duration_cast<chrono::duration < double>>(end42 - start42);
 
-    auto startTest43 = chrono::high_resolution_clock::now();
+    auto start43 = chrono::high_resolution_clock::now();
     SetList().isSubset(setA3, setB3);
-    auto finishTest43 = chrono::high_resolution_clock::now();
-    auto timeTest43 = chrono::duration_cast<chrono::duration < double>>(finishTest43 - startTest43);
+    auto end43 = chrono::high_resolution_clock::now();
+    auto timeTest43 = chrono::duration_cast<chrono::duration < double>>(end43 - start43);
 
-    auto startTest44 = chrono::high_resolution_clock::now();
+    auto start44 = chrono::high_resolution_clock::now();
     SetSet().isSubset(setA4, setB4);
-    auto finishTest44 = chrono::high_resolution_clock::now();
-    auto timeTest44 = chrono::duration_cast<chrono::duration < double>>(finishTest44 - startTest44);
+    auto end44 = chrono::high_resolution_clock::now();
+    auto timeTest44 = chrono::duration_cast<chrono::duration < double>>(end44 - start44);
 
     cout << "4.A|B \t\t " << to_string((timeTest41).count() * 10000) << "\t" << to_string((timeTest42).count() * 10000)
         << " \t " << to_string((timeTest43).count() * 10000) << " \t\t " << to_string((timeTest44).count() * 10000) << "\n";
     cout << "______________________________________________________________________________________________" << endl;
 
-    auto startTest51 = chrono::high_resolution_clock::now();
+    auto start51 = chrono::high_resolution_clock::now();
     isEqual(setA1, setA1);
-    auto finishTest51 = chrono::high_resolution_clock::now();
-    auto timeTest51 = chrono::duration_cast<chrono::duration < double>>(finishTest51 - startTest51);
+    auto end51 = chrono::high_resolution_clock::now();
+    auto timeTest51 = chrono::duration_cast<chrono::duration < double>>(end51 - start51);
 
-    auto startTest52 = chrono::high_resolution_clock::now();
+    auto start52 = chrono::high_resolution_clock::now();
     MySet().isEqual(setA2, setA2);
-    auto finishTest52 = chrono::high_resolution_clock::now();
-    auto timeTest52 = chrono::duration_cast<chrono::duration < double>>(finishTest52 - startTest52);
+    auto end52 = chrono::high_resolution_clock::now();
+    auto timeTest52 = chrono::duration_cast<chrono::duration < double>>(end52 - start52);
 
-    auto startTest53 = chrono::high_resolution_clock::now();
+    auto start53 = chrono::high_resolution_clock::now();
     SetList().isEqual(setA3, setA3);
-    auto finishTest53 = chrono::high_resolution_clock::now();
-    auto timeTest53 = chrono::duration_cast<chrono::duration < double>>(finishTest53 - startTest53);
+    auto end53 = chrono::high_resolution_clock::now();
+    auto timeTest53 = chrono::duration_cast<chrono::duration < double>>(end53 - start53);
 
-    auto startTest54 = chrono::high_resolution_clock::now();
+    auto start54 = chrono::high_resolution_clock::now();
     SetSet().isEqual(setA4, setA4);
-    auto finishTest54 = chrono::high_resolution_clock::now();
-    auto timeTest54 = chrono::duration_cast<chrono::duration < double>>(finishTest54 - startTest54);
+    auto end54 = chrono::high_resolution_clock::now();
+    auto timeTest54 = chrono::duration_cast<chrono::duration < double>>(end54 - start54);
 
     cout << "5.A=A \t\t " << to_string((timeTest51).count() * 10000) << "\t" << to_string((timeTest52).count() * 10000)
         << " \t " << to_string((timeTest53).count() * 10000) << " \t\t " << to_string((timeTest54).count() * 10000) << "\n";
     cout << "______________________________________________________________________________________________" << endl;
 
-    auto startTest61 = chrono::high_resolution_clock::now();
+    auto start61 = chrono::high_resolution_clock::now();
     isEqual(setA1, setB1);
-    auto finishTest61 = chrono::high_resolution_clock::now();
-    auto timeTest61 = chrono::duration_cast<chrono::duration < double>>(finishTest61 - startTest61);
+    auto end61 = chrono::high_resolution_clock::now();
+    auto timeTest61 = chrono::duration_cast<chrono::duration < double>>(end61 - start61);
 
-    auto startTest62 = chrono::high_resolution_clock::now();
+    auto start62 = chrono::high_resolution_clock::now();
     MySet().isEqual(setA2, setB2);
-    auto finishTest62 = chrono::high_resolution_clock::now();
-    auto timeTest62 = chrono::duration_cast<chrono::duration < double>>(finishTest62 - startTest62);
+    auto end62 = chrono::high_resolution_clock::now();
+    auto timeTest62 = chrono::duration_cast<chrono::duration < double>>(end62 - start62);
 
-    auto startTest63 = chrono::high_resolution_clock::now();
+    auto start63 = chrono::high_resolution_clock::now();
     SetList().isEqual(setA3, setB3);
-    auto finishTest63 = chrono::high_resolution_clock::now();
-    auto timeTest63 = chrono::duration_cast<chrono::duration < double>>(finishTest63 - startTest63);
+    auto end63 = chrono::high_resolution_clock::now();
+    auto timeTest63 = chrono::duration_cast<chrono::duration < double>>(end63 - start63);
 
-    auto startTest64 = chrono::high_resolution_clock::now();
+    auto start64 = chrono::high_resolution_clock::now();
     SetSet().isEqual(setA4, setB4);
-    auto finishTest64 = chrono::high_resolution_clock::now();
-    auto timeTest64 = chrono::duration_cast<chrono::duration < double>>(finishTest64 - startTest64);
+    auto end64 = chrono::high_resolution_clock::now();
+    auto timeTest64 = chrono::duration_cast<chrono::duration < double>>(end64 - start64);
 
     cout << "6.A=B \t\t " << to_string((timeTest61).count() * 10000) << "\t" << to_string((timeTest62).count() * 10000)
         << " \t " << to_string((timeTest63).count() * 10000) << " \t\t " << to_string((timeTest64).count() * 10000) << "\n";
     cout << "______________________________________________________________________________________________" << endl;
 
-    auto startTest71 = chrono::high_resolution_clock::now();
+    auto start71 = chrono::high_resolution_clock::now();
     mergeSets(setA1, setB1);
-    auto finishTest71 = chrono::high_resolution_clock::now();
-    auto timeTest71 = chrono::duration_cast<chrono::duration < double>>(finishTest71 - startTest71);
+    auto end71 = chrono::high_resolution_clock::now();
+    auto timeTest71 = chrono::duration_cast<chrono::duration < double>>(end71 - start71);
 
-    auto startTest72 = chrono::high_resolution_clock::now();
+    auto start72 = chrono::high_resolution_clock::now();
     MySet().mergeSets(setA2, setB2);
-    auto finishTest72 = chrono::high_resolution_clock::now();
-    auto timeTest72 = chrono::duration_cast<chrono::duration < double>>(finishTest72 - startTest72);
+    auto end72 = chrono::high_resolution_clock::now();
+    auto timeTest72 = chrono::duration_cast<chrono::duration < double>>(end72 - start72);
 
     auto startTest73 = chrono::high_resolution_clock::now();
     SetList().mergeSets(setA3, setB3);
