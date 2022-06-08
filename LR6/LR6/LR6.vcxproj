@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="MySet.h" />
+    <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="SetHeader.h" />
     <ClInclude Include="SetLab4_Akmashev.h" />
     <ClInclude Include="SetLab5_Akmashev.h" />
@@ -147,9 +148,13 @@
   <ItemGroup>
     <ClCompile Include="MySetRealization.cpp" />
     <ClCompile Include="MySets_Akmashev.cpp" />
+    <ClCompile Include="QueueSetRealization.cpp" />
     <ClCompile Include="SetLab4_Akmashev.cpp" />
     <ClCompile Include="SetLab5_Akmashev.cpp" />
     <ClCompile Include="SetRealization.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
